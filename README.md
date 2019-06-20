@@ -19,7 +19,8 @@ In addition, you will need to [install the relevant packages](https://www.dataca
 
 1) Read in a specified FCS file opened with a dialogue window.
 2) Determine an approximate "cutoff" value for mass cytometry data - this is very roughly the point at which we consider values to be potentially lost in the noise of irrlevant markers - e.g. common contaminants such as I 127 / Pb 208. This is considered to be around 20k DC (dual counts) in solution mode (e.g. 1 second acquisition).
-4) Plot every parameter on a bar chart.
+3) Plot a single graph of all markers. 
+4) If there are markers below the cutoff, it will show a second. If there are markers above the cutoff, it will plot a third.
 5) Colour-code the bars according to the CV of the intensity. e.g. if the intensity is highly varied (spread around from low to high), the bars will show as purple / red.
 6) Place a frequency above the bar. e.g. if all events include that parameter / channel, this will be 100%. 
 
