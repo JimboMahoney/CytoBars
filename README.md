@@ -23,6 +23,7 @@ In addition, you will need to [install the relevant packages](https://www.dataca
 4) If there are markers below the cutoff, it will show a second. If there are markers above the cutoff, it will plot a third.
 5) Colour-code the bars according to the CV of the intensity. e.g. if the intensity is highly varied (spread around from low to high), the bars will show as purple / red.
 6) Place a frequency above the bar. e.g. if all events include that parameter / channel, this will be 100%. 
+7) Title the chart with the filename, the cutoff value used and the number of markers.
 
 <b> How I learned to do this: </b>
 
