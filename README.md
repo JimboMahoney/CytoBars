@@ -4,7 +4,7 @@ This script will generate one (or more) bar charts of the intensity of each para
 
 e.g.
 
-<img src="https://raw.githubusercontent.com/JimboMahoney/CytobankGraphs/master/Plot2.png"
+<img src="https://raw.githubusercontent.com/JimboMahoney/CytoBars/master/2019_06_20_09_07_08_Window.png"
   align="center" />
 
 <b>Requirements:</b>
@@ -13,18 +13,15 @@ e.g.
  - some flow or mass FCS data!
  
  
-In addition, you will need to [install the relevant packages](https://www.datacamp.com/community/tutorials/r-packages-guide) (FlowCore, reshape2 and ggplot2, svdialogs) using the install.packages("packagename") command, which is not included in the script.
+In addition, you will need to [install the relevant packages](https://www.datacamp.com/community/tutorials/r-packages-guide) (FlowCore, ggplot2, svdialogs, tidyverse) using the install.packages("packagename") command, which is not included in the script.
 
 <b>This script will:</b>
 
 1) Read in a specified FCS file opened with a dialogue window.
-2) Optionally transform the data using a data-specific arcsinh (you'll need to look at the code and remove the comments).
-3) Subsample down to 5,000 events if the dataset is large (or a user-specified number or proportion of events). Again, take a look at the code and modify it as needed.
-4) Plot every parameter using a similar graphically representation and palette as cytobank.
-5) If the file is from a CyTOF machine, give a summary of the number of cell events and the acquisition rate.
-6) Give the mean intensity and event/sec as an overlay on each plot.
-
-Since the parameters can be numerous (e.g. I'm using a dataset with 62 parameters), it's best to use the "Zoom" function to view the output in fullscreen.
+2) Determine an approximate "cutoff" value for mass cytometry data - this is very roughly the point at which we consider values to be potentially lost in the noise of irrlevant markers - e.g. common contaminants such as I 127 / Pb 208. This is considered to be around 20k DC (dual counts) in solution mode (e.g. 1 second acquisition).
+4) Plot every parameter on a bar chart.
+5) Colour-code the bars according to the CV of the intensity. e.g. if the intensity is highly varied (spread around from low to high), the bars will show as purple / red.
+6) Place a frequency above the bar. e.g. if all events include that parameter / channel, this will be 100%. 
 
 <b> How I learned to do this: </b>
 
@@ -36,11 +33,9 @@ The following links were incredibly useful for getting the code up and running:
 - An incredibly complex CyTOF [workflow](https://www.bioconductor.org/help/course-materials/2017/BioC2017/Day2/Workshops/CyTOF/doc/cytofWorkflow_BioC2017workshop.html) with some snippets I could understand and implement
 - A <b>lot</b> of [this!](https://www.google.com/)
 
-<b>Improvements / things to do:</b>
 
-- ~~The graphical representation isn't perfect. I need to figure out a way of making the plots more "dense" and / or having the density overlay better defined.~~ PARTIALLY FIXED in latest upload.
-- ~~The markers aren't getting imported for some reason (from Helios / CyTOF data). Only the parameter names are visible. They appear when plotted in e.g. FCS Express, so they must be in the FCS file?~~ FIXED in latest upload.
-- ~~Uncertainty over the units of time and whether they differ between CyTOF and flow (BD) machines.~~ UPDATE - Units of time are now correct for both flow and CyTOF. Tested with BD Aria and Helios.
+
+
 
 Feedback / suggestions appreciated.
 
