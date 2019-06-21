@@ -288,9 +288,9 @@ testfile <- capture.output(testfile)[7]
 lowmarkers <- subset(summarydata,MeanDC<cutoff)
 
 # Don't draw second plot if all markers or data is flow or there are no lowmarkers or file cancelled.
-if ((testfile)=="character(0)" || nrow(highmarkers)/nrow(summarydata)==1 || nrow(highmarkers)==0 || isflow>0){
+if ((testfile)=="character(0)" || nrow(lowmarkers)/nrow(summarydata)==1 || nrow(lowmarkers)==0 || isflow>0){
   stop("Only drawing one plot")
-}else
+}else{
   
   ggplot(lowmarkers, aes(x=Marker,y=MeanDC, fill=SD/MeanDC)) +
   # Apply colour ramp
@@ -317,7 +317,7 @@ if ((testfile)=="character(0)" || nrow(highmarkers)/nrow(summarydata)==1 || nrow
   theme(axis.text.x=element_text(angle=45,hjust=1))+
   # Add frequency of events as label
   geom_text(size=3,vjust=-1,aes(label=paste(Events,"%")))
-
+}
 
 ## Create and plot only data greater than cutoff  
 
@@ -326,7 +326,7 @@ highmarkers <- subset(summarydata,MeanDC>cutoff)
 # Don't draw second plot if all markers or data is flow or there are no highmarkers or file cancelled.
 if ((testfile)=="character(0)" || nrow(highmarkers)/nrow(summarydata)==1 || nrow(highmarkers)==0 || isflow>0){
   stop("Only drawing one plot")
-}else
+}else{
   
   ggplot(highmarkers, aes(x=Marker,y=MeanDC, fill=SD/MeanDC)) +
   # Apply colour ramp
@@ -353,3 +353,4 @@ if ((testfile)=="character(0)" || nrow(highmarkers)/nrow(summarydata)==1 || nrow
   theme(axis.text.x=element_text(angle=45,hjust=1))+
   # Add frequency of events as label
   geom_text(size=3,vjust=-1,aes(label=paste(Events,"%")))
+}
