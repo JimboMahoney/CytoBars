@@ -7,9 +7,36 @@
 ## If two or three plots are produced, use the Next/Prev button on the Plots panel to view
 ## Optional conversion factor to convert from Event mode DCs -> Solution Mode DCs
 
+#########################################################
+### Installing and loading required packages
+#########################################################
+
+if (!require("svDialogs")) {
+  install.packages("svDialogs", dependencies = TRUE)
+  library(svDialogs)
+}
+
+if (!require("flowCore")) {
+  if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+  
+  BiocManager::install("flowCore")
+}
+
+if (!require("tidyverse")) {
+  install.packages("tidyverse", dependencies = TRUE)
+  library(tidyverse)
+}
+
+if (!require("ggplot2")) {
+  install.packages("ggplot2", dependencies = TRUE)
+  library(ggplot2)
+}
+
+
 # Data Import from file chosen by user
 
-library(svDialogs)
+# library(svDialogs) # Moved to top
 # Get user input for file
 testfile<-dlg_open()
 # Convert to string value
@@ -30,7 +57,7 @@ testfile <- capture.output(testfile)[7]
   # Set working directory accoding to file chosen
   setwd(dir)
   
-  library(flowCore)
+  # library(flowCore) # Moved to top
   
   # this read.FCS() function imports the flow data:
   raw_fcs<-read.FCS(filename, alter.names = TRUE)
@@ -98,7 +125,7 @@ testfile <- capture.output(testfile)[7]
   
   
   ## Remove FSC and SSC
-  library(tidyverse) 
+  # library(tidyverse) # Moved to top
   FCSDATA <- FCSDATA %>% select(-contains("FSC"))
   FCSDATA <- FCSDATA %>% select(-contains("SSC"))
   
@@ -251,7 +278,7 @@ testfile <- capture.output(testfile)[7]
   # Three colour ramp
   colfunc <- colorRampPalette(c( "black","purple4", "red"))
   
-  library(ggplot2)
+  #library(ggplot2) # Moved to top
   
   ggplot(summarydata, aes(x=Marker,y=MeanDC, fill=SD/MeanDC)) +
     # Apply colour ramp
