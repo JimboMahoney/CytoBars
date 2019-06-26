@@ -13,7 +13,9 @@ e.g.
  - some flow or mass FCS data!
  
  
-In addition, you will need to [install the relevant packages](https://www.datacamp.com/community/tutorials/r-packages-guide) (FlowCore, ggplot2, svdialogs, tidyverse) using the install.packages("packagename") command, which is not included in the script.
+~~In addition, you will need to [install the relevant packages](https://www.datacamp.com/community/tutorials/r-packages-guide) (FlowCore, ggplot2, svdialogs, tidyverse) using the install.packages("packagename") command, which is not included in the script.~~
+
+UPDATE - Added installing (if required) and loading libraries to top of script.
 
 <b>This script will:</b>
 
