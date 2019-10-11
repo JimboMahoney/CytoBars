@@ -4,7 +4,7 @@ This script will generate one (or more) bar charts of the intensity of each para
 
 e.g.
 
-<img src="https://raw.githubusercontent.com/JimboMahoney/CytoBars/master/2019_06_20_09_07_08_Window.png"
+<img src="https://raw.githubusercontent.com/JimboMahoney/CytoBars/master/2019-10-11 13_02_58-Window.png"
   align="center" />
 
 <b>Requirements:</b>
